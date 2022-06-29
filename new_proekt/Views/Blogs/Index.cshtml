@@ -1,0 +1,110 @@
+﻿@model IEnumerable<new_proekt.Models.Blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br />
+<p>
+    <button type="button" class="btn btn-light" style="float: right"> @Html.ActionLink("Create New", "Create")</button>
+
+</p>
+@*<br />
+    <p>
+        <button type="button" class="btn btn-light" style="float: right"> @Html.ActionLink("Create New", "Create")</button>
+
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BlogTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BLogContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BLogTime)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLogContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BLogTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.BlogID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.BlogID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.BlogID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div id="postlist">
+                    <div class="panel" style="border: solid gray 1px; background-color: floralwhite; font-family: math;">
+                        <div class="panel-heading">
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h3 class="pull-left">@Html.DisplayFor(modelItem => item.BlogTitle)</h3>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h4 class="pull-right">
+                                            <small><em>@Html.DisplayFor(modelItem => item.BLogTime)</em></small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.BLogContent)
+                        </div>
+
+                        <div class="panel-footer" style="background-color: #A6A6A6; height: 56px " >
+                            <div style="float: right">
+                                <button type="button" class="btn btn-light">@Html.ActionLink("Edit", "Edit", new { id = item.BlogID })</button>
+                                <button type="button" class="btn btn-light">@Html.ActionLink("Delete", "Delete", new { id = item.BlogID })</button>
+                            </div>
+                           
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+}
+<style>
+    body {
+        background-color: #D3D3D3;
+    }
+</style>

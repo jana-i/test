@@ -1,0 +1,84 @@
+﻿@model new_proekt.Models.clothes
+
+@{
+    ViewBag.Title = "Details";
+}
+<html>
+<body>
+    <br />
+    <br />
+    <div style="float: right; margin-right: 460px; font-family: math;">
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+        <div class="card-body">
+            <p class="card-text"><b>@Html.DisplayFor(model => model.Description)</b></p>
+        </div>
+    </div>
+
+    <br />
+    <div style="width: 500px; height: 1000px; float: left">
+        <img class="card-img-top" src="@Html.DisplayFor(model => model.ImageURL)" style="width: 100%; box-shadow: 10px 10px 5px #a9a9a9;">
+    </div>
+    <div class="card" style="width: 18rem; float: right; margin-right: 390px; margin-top: 200px;">
+
+
+        <br />
+        <br />
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="background-color:whitesmoke"><strong>Item Code: </strong>@Html.DisplayFor(model => model.ItemCode)</li>
+            <li class="list-group-item" style="background-color:whitesmoke"><strong>Price: </strong>@Html.DisplayFor(model => model.Price) $</li>
+        </ul>
+        <div class="card-body">
+            @if (User.IsInRole("Manager"))
+            {
+                <button class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+                </button>
+            }
+
+
+        </div>
+
+        <div style="margin-bottom: 18px;">
+            @*<input type="button" name="AddToCard" value="Add To Card" class="btn-group" itemId="@Model.Id" id="btnAddToCard" onclick="AddToCard(this)"/>*@
+            
+            <button class="btn-group" role="group" aria-label="Basic checkbox toggle button group" style=" padding-left: 51px; padding-right: 52px;">
+                @Html.ActionLink("Add to cart", "Index", new { id = Model.Id })
+            </button>
+        </div>
+        <div>
+            <button class="btn-group" role="group" aria-label="Basic checkbox toggle button group" style=" padding-left: 51px; padding-right: 52px;">
+                @Html.ActionLink("Back to List", "Index")
+            </button>
+        </div>
+    </div>
+    <style>
+        body {
+            background-color: #D3D3D3;
+        }
+    </style>
+    @*<script type="text/javascript">
+        function AddToCard(item) {
+            var itemId = $(item).attr("itemId");
+            var formData = new FormData();
+            formData.append("ItemId", itemId);
+
+            $.ajax({
+                async: true,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                data: formData,
+                url: '/ShoppingCards/Index',
+                success: function (data) {
+
+                },
+                error: function () {
+                    alert("There is some problem");
+                },
+
+            });
+        }
+    </script>*@
+</body>
+</html>

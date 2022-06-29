@@ -1,0 +1,821 @@
+﻿@model new_proekt.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@*<h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }*@
+
+
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = " control-label" })
+            <div class="col-md-8 text-left">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            <div class="col-md-8 text-left">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = " control-label" })
+            <div class="col-md-8 text-left">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('.input').focus(function () {
+                $(this).parent().find(".label-txt").addClass('label-active');
+            });
+
+            $(".input").focusout(function () {
+                if ($(this).val() == '') {
+                    $(this).parent().find(".label-txt").removeClass('label-active');
+                };
+            });
+
+        });
+    </script>
+    <style>
+
+
+        body {
+            background: #d4cac1;
+        }
+
+        .form-horizontal {
+            width: 60%;
+            margin: 60px auto;
+            background: #efefef;
+            padding: 60px 120px 80px 120px;
+            text-align: center;
+            -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        }
+
+        .label {
+            display: block;
+            position: relative;
+            margin: 40px 0px;
+        }
+
+        .label-txt {
+            position: absolute;
+            top: -1.6em;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: .8em;
+            letter-spacing: 1px;
+            color: rgb(120,120,120);
+            transition: ease .3s;
+        }
+
+        .input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        .line-box {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: #BCBCBC;
+        }
+
+        .line {
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8BC34A;
+            transition: ease .6s;
+        }
+
+        .input:focus + .line-box .line {
+            width: 100%;
+        }
+
+        .label-active {
+            top: -3em;
+        }
+
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgb(220,220,220);
+            font-weight: bold;
+            color: rgb(120,120,120);
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: ease .3s;
+        }
+
+            button:hover {
+                background: #8BC34A;
+                color: #ffffff;
+            }
+    </style>*@
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+<html>
+<body>
+
+
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                        <div class="login100-form-title" style="background-image: url(https://img.freepik.com/free-photo/aesthetic-minimalist-fashion-influencer-blog-composition-stylish-pastel-summer-female-clothes-dress-tops-t-shirts-straw-hat-clothing-rack-against-white-wall_408798-8780.jpg?size=626&ext=jpg);">
+                            <span class="login100-form-title-1">
+                                Register
+                            </span>
+                        </div>
+
+
+
+                        <form class="login100-form validate-form">
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="dvataDivs">
+                                <div class="wrap-input100">
+
+
+
+                                    <div class="input100" type="text" name="username" placeholder="Enter username">
+                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="wrap-input100">
+
+
+
+                                    <div class="input100" type="password" name="pass" placeholder="Enter password">
+                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                                <div class="wrap-input100">
+
+
+
+                                    <div class="input100" type="password" name="pass" placeholder="Enter password">
+                                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Register
+                                </button>
+                            </div>
+
+
+
+
+                        </form>
+
+
+
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+                .dvataDivs {
+                    padding-top: 18px;
+                }
+
+
+
+                .prvoP {
+                    padding-top: 23px;
+                    padding-left: 25px;
+                }
+
+
+
+                .vtoroP {
+                    padding-left: 24px;
+                }
+
+
+
+                * {
+                    margin: 0px;
+                    padding: 0px;
+                    box-sizing: border-box;
+                }
+
+
+
+        body, html {
+            height: 100%;
+            font-family: Poppins-Regular, sans-serif;
+            background-color: #D3D3D3;
+        }
+
+
+
+
+
+
+                p {
+                    font-family: Poppins-Regular;
+                    font-size: 14px;
+                    line-height: 1.7;
+                    color: #666666;
+                    margin: 0px;
+                }
+
+
+
+
+
+                textarea:-ms-input-placeholder {
+                    color: #999999;
+                }
+
+
+
+                label {
+                    display: block;
+                    margin: 0;
+                }
+
+
+
+                /*---------------------------------------------*/
+                button {
+                    outline: none !important;
+                    border: none;
+                    background: transparent;
+                }
+
+
+
+                    button:hover {
+                        cursor: pointer;
+                    }
+
+
+
+                iframe {
+                    border: none !important;
+                }
+
+
+
+
+                /
+
+
+
+                .limiter {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+
+
+
+        .container-login100 {
+            width: 100%;
+            min-height: 100vh;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background: #D3D3D3;
+        }
+
+
+
+
+                .wrap-login100 {
+                    width: 670px;
+                    height: 500px;
+                    background: #fff;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+
+
+                /*==================================================================
+        [ Title form ]*/
+                .login100-form-title {
+                    width: 100%;
+                    position: relative;
+                    z-index: 1;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    align-items: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    padding: 70px 15px 74px 15px;
+                }
+
+
+
+                .login100-form-title-1 {
+                    font-family: Poppins-Bold;
+                    font-size: 30px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    line-height: 1.2;
+                    text-align: center;
+                }
+
+
+
+                .login100-form-title::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    z-index: -1;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(54,84,99,0.7);
+                }
+
+
+
+
+                /*==================================================================
+        [ Form ]*/
+
+
+
+                .login100-form {
+                    width: 100%;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    padding: 43px 88px 93px 190px;
+                }
+
+
+
+
+                /*------------------------------------------------------------------
+        [ Input ]*/
+
+
+
+                .wrap-input100 {
+                    width: 100%;
+                    position: relative;
+                }
+
+
+
+                .label-input100 {
+                    font-family: Poppins-Regular;
+                    font-size: 15px;
+                    color: #808080;
+                    line-height: 1.2;
+                    text-align: right;
+                    position: absolute;
+                    top: 14px;
+                    left: -105px;
+                    width: 80px;
+                }
+
+
+
+                /*---------------------------------------------*/
+                .input100 {
+                    font-family: Poppins-Regular;
+                    font-size: 15px;
+                    color: #555555;
+                    line-height: 1.2;
+                    display: block;
+                    width: 100%;
+                    background: transparent;
+                    padding-left: 101px;
+                    padding-bottom: 20px;
+                }
+
+
+
+                .focus-input100 {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    top: 16px;
+                    left: 213px;
+                    pointer-events: none;
+                }
+
+
+
+                    .focus-input100::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        bottom: -1px;
+                        left: 0;
+                        width: 0;
+                        height: 1px;
+                        -webkit-transition: all 0.6s;
+                        -o-transition: all 0.6s;
+                        -moz-transition: all 0.6s;
+                        transition: all 0.6s;
+                        background: #57b846;
+                    }
+
+
+
+
+                /*---------------------------------------------*/
+                input.input100 {
+                    height: 45px;
+                }
+
+
+
+
+                .input100:focus + .focus-input100::before {
+                    width: 100%;
+                }
+
+
+
+                .has-val.input100 + .focus-input100::before {
+                    width: 100%;
+                }
+
+
+
+                /*==================================================================
+        [ Restyle Checkbox ]*/
+
+
+
+                .input-checkbox100 {
+                    display: none;
+                }
+
+
+
+                .label-checkbox100 {
+                    font-family: Poppins-Regular;
+                    font-size: 13px;
+                    color: #999999;
+                    line-height: 1.4;
+                    display: block;
+                    position: relative;
+                    padding-left: 26px;
+                    cursor: pointer;
+                }
+
+
+
+                    .label-checkbox100::before {
+                        content: "\f00c";
+                        font-family: FontAwesome;
+                        font-size: 13px;
+                        color: transparent;
+                        display: -webkit-box;
+                        display: -webkit-flex;
+                        display: -moz-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 2px;
+                        background: #fff;
+                        border: 1px solid #e6e6e6;
+                        left: 0;
+                        top: 50%;
+                        -webkit-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+
+
+
+                .input-checkbox100:checked + .label-checkbox100::before {
+                    color: #57b846;
+                }
+
+
+
+                /*------------------------------------------------------------------
+        [ Button ]*/
+                .container-login100-form-btn {
+                    width: 100%;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding-left: 242px;
+                    padding-top: 6px;
+                }
+
+
+
+                .login100-form-btn {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 20px;
+                    min-width: 160px;
+                    height: 50px;
+                    background-color: #57b846;
+                    border-radius: 25px;
+                    font-family: Poppins-Regular;
+                    font-size: 16px;
+                    color: #fff;
+                    line-height: 1.2;
+                    -webkit-transition: all 0.4s;
+                    -o-transition: all 0.4s;
+                    -moz-transition: all 0.4s;
+                    transition: all 0.4s;
+                }
+
+
+
+                    .login100-form-btn:hover {
+                        background-color: #333333;
+                    }
+
+
+
+
+                /*------------------------------------------------------------------
+        [ Responsive ]*/
+
+
+
+                .login100-form {
+                    padding: 43px 15px 57px 117px;
+                    max-width: 576px
+                }
+
+                }
+
+
+
+
+                .login100-form {
+                    padding: 43px 15px 57px 15px;
+                    max-width: 480px
+                }
+
+
+
+                .label-input100 {
+                    text-align: left;
+                    position: unset;
+                    top: unset;
+                    left: unset;
+                    width: 100%;
+                    padding: 0 5px;
+                }
+
+                }
+
+
+
+
+                /*------------------------------------------------------------------
+        [ Alert validate ]*/
+
+
+
+                .validate-input {
+                    position: relative;
+                }
+
+
+
+                .alert-validate::before {
+                    content: attr(data-validate);
+                    position: absolute;
+                    max-width: 70%;
+                    background-color: #fff;
+                    border: 1px solid #c80000;
+                    border-radius: 2px;
+                    padding: 4px 25px 4px 10px;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    -moz-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    -o-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    right: 2px;
+                    pointer-events: none;
+                    font-family: Poppins-Medium;
+                    color: #c80000;
+                    font-size: 13px;
+                    line-height: 1.4;
+                    text-align: left;
+                    visibility: hidden;
+                    opacity: 0;
+                    -webkit-transition: opacity 0.4s;
+                    -o-transition: opacity 0.4s;
+                    -moz-transition: opacity 0.4s;
+                    transition: opacity 0.4s;
+                }
+
+
+
+                .alert-validate::after {
+                    content: "\f06a";
+                    font-family: FontAwesome;
+                    display: block;
+                    position: absolute;
+                    color: #c80000;
+                    font-size: 15px;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    -moz-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    -o-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    right: 8px;
+                }
+
+
+
+                .alert-validate:hover:before {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+
+
+
+                .alert-validate::before {
+                    visibility: visible;
+                    opacity: 1;
+                    max-width: 992px
+                }
+                }
+    </style>
+</body>
+
+
+
+</html>
+
+
+
+@*<h2>@ViewBag.Title.</h2>
+
+
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    </div>
+    <div class="form-group">
+    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    </div>
+    <div class="form-group">
+    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+    </div>
+    </div>
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    <input type="submit" class="btn btn-default" value="Register" />
+    </div>
+    </div>
+    }*@
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
